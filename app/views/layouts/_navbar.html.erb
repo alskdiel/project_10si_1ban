@@ -1,0 +1,24 @@
+<nav>
+  <div class="logo">십시일반</div>
+  <div class="text-wrapper">
+    <%= link_to "Items", "/item" %>
+  </div>
+
+  <form action="searchItem">
+    <input type="text" placeholder="search"/>
+    <input type="submit" value="search"/>
+  </form>
+
+  <% if user_signed_in? %>
+    <div class="text-wrapper">
+      <%= link_to "My Item", "/myItem" %>
+    </div>
+    <div class="text-wrapper my-account">
+      <%= current_user.email %>
+    </div>
+    <div class="text-wrapper">
+      <%= link_to "Sign out", destroy_user_session_path, class: 'a-bb',  method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+
+</nav>

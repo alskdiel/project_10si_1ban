@@ -1,0 +1,22 @@
+<h1>ITEM</h1>
+
+<div><%= @item.name %></div>
+<div><%= @item.price%></div>
+<div><%= @item.content%></div>
+<div><%= @item.hits %></div>
+
+<%= image_tag @item.image.url %>
+
+<%
+  if @isPossible
+    if @item.current_num != @item.required_num %>
+    <%= link_to "buy", "/getItem/#{@item.id}" %><%
+    end
+  else
+%>
+  <div>신청함</div>
+<%
+  end
+%>
+
+<%= link_to "list", "/" %>
